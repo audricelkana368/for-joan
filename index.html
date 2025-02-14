@@ -9,7 +9,7 @@
             min-height: 100vh;
             font-family: Helvetica, sans-serif;
             text-align: left;
-            overflow: auto;
+            overflow: hidden;
             position: relative; display: flex; flex-direction: column; justify-content: center; align-items: center;
             background-color: #fad0c4;
         }
@@ -38,7 +38,7 @@
             100% { opacity: 0; }
         }
         .container {
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.8); overflow-y: auto; height: 400px; width: 400px;
             padding: 20px;
             border-radius: 15px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
