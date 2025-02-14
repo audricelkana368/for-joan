@@ -38,7 +38,7 @@
             100% { opacity: 0; }
         }
         .container {
-            background: rgba(255, 255, 255, 0.8); overflow-y: auto; height: 70vh; max-height: 400px; width: 90%; max-width: 400px;
+            background: rgba(255, 255, 255, 0.9); overflow-y: auto; height: 70vh; max-height: 400px; width: 90%; max-width: 400px;
             padding: 20px;
             border-radius: 15px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
@@ -80,7 +80,9 @@
     <div class="slideshow" id="slideshow"></div>
     <div class="container">
         <h1>For My Love ❤️</h1>
-        <button onclick="playMusic()">Play Our Song 🎶</button>
+        <button onclick="toggleMusic()" style="width: 40px; height: 40px; border-radius: 50%; background-color: #d33; color: white; font-size: 16px; display: flex; align-items: center; justify-content: center; border: none; cursor: pointer; transition: background 0.3s;">▶</button> <span>Play Our Song 🎶</span>
+        <br><br>
+        <input type="range" id="progress" value="0" step="1" min="0" max="100" style="width: 100%;" onchange="seekMusic()">
         <p>Happy Valentine's Day Joan, my sayang!<br><br>
 I love you very much sayang, aku selalu bilang aku seneng dan selalu bersyukur bisa sama kamu!<br><br>
 Kayaknya kalau inget-inget a point dimana aku paling bersyukur bisa sama kamu, itu waktu aku awal-awal casing dan masih sering overthinking, tapi kamu temenin aku dan waktu itu kita vidcall dan kamu sambil journaling. Terus aku liat kamu journaling rasanya jadi content dan thankful banget dan overthinking aku jadi hilang gituu. terus jadinya aku tulis ini di note aku:<br><br>
