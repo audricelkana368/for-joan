@@ -14,6 +14,7 @@
             text-align: center;
             overflow: hidden;
             position: relative;
+            background-color: #fad0c4;
         }
         .slideshow {
             position: fixed;
@@ -22,26 +23,21 @@
             width: 100%;
             height: 100%;
             z-index: -1;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: repeat(5, 1fr);
         }
         .slideshow img {
-            position: absolute;
-            width: 100%;
-            height: 100%;
+            width: 100px;
+            height: 100px;
             object-fit: cover;
             opacity: 0;
-            animation: fade 25s infinite;
+            position: absolute;
         }
-        .slideshow img:nth-child(1) { animation-delay: 0s; }
-        .slideshow img:nth-child(2) { animation-delay: 5s; }
-        .slideshow img:nth-child(3) { animation-delay: 10s; }
-        .slideshow img:nth-child(4) { animation-delay: 15s; }
-        .slideshow img:nth-child(5) { animation-delay: 20s; }
-
         @keyframes fade {
             0% { opacity: 0; }
             20% { opacity: 1; }
-            40% { opacity: 1; }
-            60% { opacity: 0; }
+            80% { opacity: 1; }
             100% { opacity: 0; }
         }
         .container {
@@ -51,6 +47,8 @@
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
             max-width: 400px;
             animation: fadeIn 2s ease-in-out;
+            position: relative;
+            z-index: 1;
         }
         h1 {
             color: #d33;
@@ -82,13 +80,7 @@
     </style>
 </head>
 <body>
-    <div class="slideshow">
-        <img src="photo1.jpg" alt="Photo 1">
-        <img src="photo2.jpg" alt="Photo 2">
-        <img src="photo3.jpg" alt="Photo 3">
-        <img src="photo4.jpg" alt="Photo 4">
-        <img src="photo5.jpg" alt="Photo 5">
-    </div>
+    <div class="slideshow" id="slideshow"></div>
     <div class="container">
         <h1>For My Love ❤️</h1>
         <p>Happy Valentine's Day, my love! You are the light of my life, my best friend, and my greatest joy. Every moment with you is special, and I am so grateful for you. I love you more than words can say. 💕</p>
@@ -98,6 +90,19 @@
     <script>
         function playMusic() {
             document.getElementById('loveSong').play();
+        }
+
+        const images = ["photo1.jpg", "photo2.jpg", "photo3.jpg", "photo4.jpg", "photo5.jpg"];
+        const slideshow = document.getElementById("slideshow");
+        const tileCount = 25;
+
+        for (let i = 0; i < tileCount; i++) {
+            let img = document.createElement("img");
+            img.src = images[Math.floor(Math.random() * images.length)];
+            img.style.top = `${Math.floor(i / 5) * 20}%`;
+            img.style.left = `${(i % 5) * 20}%`;
+            img.style.animation = `fade ${5 + Math.random() * 5}s infinite ${Math.random() * 5}s`;
+            slideshow.appendChild(img);
         }
     </script>
 </body>
